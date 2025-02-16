@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c571fc8224c30d1c0d8c227c652a45e",
+    "content-hash": "5ce0b2c210260b8be06a6f979ee79758",
     "packages": [
         {
             "name": "brick/math",
@@ -1267,6 +1267,62 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2025-01-02T20:10:21+00:00"
+        },
+        {
+            "name": "laravel/installer",
+            "version": "v5.11.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/installer.git",
+                "reference": "2cd77ac1acddbdac01bb02b028280a3aebde878a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/installer/zipball/2cd77ac1acddbdac01bb02b028280a3aebde878a",
+                "reference": "2cd77ac1acddbdac01bb02b028280a3aebde878a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "^10.20|^11.0",
+                "illuminate/support": "^10.20|^11.0",
+                "laravel/prompts": "^0.1.18|^0.2.0|^0.3.0",
+                "php": "^8.2",
+                "symfony/console": "^6.2|^7.0",
+                "symfony/polyfill-mbstring": "^1.31",
+                "symfony/process": "^6.2|^7.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.4"
+            },
+            "bin": [
+                "bin/laravel"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Installer\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel application installer.",
+            "keywords": [
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/installer/issues",
+                "source": "https://github.com/laravel/installer/tree/v5.11.2"
+            },
+            "time": "2025-01-14T15:48:12+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -8434,12 +8490,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

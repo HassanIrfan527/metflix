@@ -14,7 +14,15 @@ class Movie extends Model
         'director',
         'release_date',
         'duration',
-        'cover_image',
+        'poster',
         'trailer',
+        'genre',
+        'year',
+        'rated',
+        'imdbID',
+        'imdbRating',
+        'type',
+        'writer',
+        'actors',
     ];
 }

@@ -9,28 +9,28 @@ use Illuminate\Support\Facades\Storage;
 
 class MoviesInterface extends Component
 {
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'director' => 'required|string|max:255',
-            'release_date' => 'required|date',
-            'duration' => 'required|integer',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-            'genre' => 'required|string|max:255',
-            'trailer' => 'nullable|url',
-            'classification' => 'required|string|max:255',
-        ]);
+    // public function store(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'description' => 'required|string',
+    //         'director' => 'required|string|max:255',
+    //         'release_date' => 'required|date',
+    //         'duration' => 'required|integer',
+    //         'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+    //         'genre' => 'required|string|max:255',
+    //         'trailer' => 'nullable|url',
+    //         'classification' => 'required|string|max:255',
+    //     ]);
 
-        $path = $request->file('cover_image')->store('movies', 'public');
+    //     $path = $request->file('cover_image')->store('movies', 'public');
 
-        $validated['cover_image'] = $path;
+    //     $validated['cover_image'] = $path;
 
-        Movie::create($validated);
+    //     Movie::create($validated);
 
-        return redirect()->route('movies.index')->with('success', 'Movie added successfully!');
-    }
+    //     return redirect()->route('movies.index')->with('success', 'Movie added successfully!');
+    // }
 
     public function render()
     {

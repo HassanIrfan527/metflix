@@ -6,7 +6,8 @@
         <x-alert type="error" :message="session('error')"></x-alert>
     @endif
 
-    <livewire:test/>
     <livewire:pages.movies-interface />
+    {{-- <livewire:calculator /> --}}
+    <livewire:todo />
 
 </x-app-layout>
