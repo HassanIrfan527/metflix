@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Livewire\Movie;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,6 +15,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home/movies', function () {
         return 'Movies';
     })->name('movies');
+    Route::get('/home/movie/{title}-{year}', Movie::class)->name('movie');
     Route::get('/home/series', function () {
         return 'Series';
     })->name('series');
