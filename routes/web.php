@@ -15,7 +15,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home/movies', function () {
         return 'Movies';
     })->name('movies');
-    Route::get('/home/movie/{title}-{year}', Movie::class)->name('movie');
+
+    Route::get('/home/movie', Movie::class)->name('movie');
+
     Route::get('/home/series', function () {
         return 'Series';
     })->name('series');
@@ -23,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home/anime', function () {
         return 'Anime';
     })->name('anime');
+
     Route::get('/home/my-watchlist', function () {
         return 'WatchList';
     })->name('watchlist');
