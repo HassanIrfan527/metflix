@@ -4,9 +4,9 @@
 @endphp
 
 
-
+<x-slot name="title">{{$movie->title}} ({{$movie->year}})</x-slot>
 <div>
-    <button onclick="window.history.back()" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+    <button onclick="window.history.back()" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl">
         ← Back to Movies
     </button>
 

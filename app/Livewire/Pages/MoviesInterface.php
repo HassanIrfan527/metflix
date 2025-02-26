@@ -34,7 +34,7 @@ class MoviesInterface extends Component
 
     public function render()
     {
-        $movies = Movie::all();
+        $movies = Movie::inRandomOrder()->select('poster', 'title', 'year', 'imdbRating')->take(25)->get();
         return view(
             'livewire.pages.movies-interface',
             ['movies' => $movies]

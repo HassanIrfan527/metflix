@@ -1,4 +1,16 @@
-@props(['movieTitle', 'year', 'imdbRating', 'posterImage', 'altText', 'duration', 'genre', 'description', 'directors', 'actors', 'rated'])
+@props([
+    'movieTitle',
+    'year',
+    'imdbRating',
+    'posterImage',
+    'altText',
+    'duration',
+    'genre',
+    'description',
+    'directors',
+    'actors',
+    'rated',
+])
 
 <div class="min-h-screen grid place-items-center bg-gray-900">
 
@@ -31,7 +43,8 @@
                 </p>
 
                 <p class="text-lg px-6 my-4">
-                    <span class="font-bold">Rated: {{ $rated }}</span>
+                    <span class="font-bold"><x-rating-tags><x-slot
+                                name="rating">{{ $rated }}</x-slot></x-rating-tags></span>
                 </p>
 
                 <div class="text-sm">
@@ -56,14 +69,14 @@
         </div>
         <div class="bottom-0 relative p-4 bg-gray-700 rounded-b-md">
             <div class="flex flex-col md:flex-row justify-between items-center text-white">
-            <div class="flex flex-col md:flex-row items-center">
-                <span class="font-semibold">Directed by:</span>
-                <span class="font-bold ml-2">{{$directors}}</span>
-            </div>
-            <div class="flex flex-col md:flex-row items-center mt-2 md:mt-0">
-                <span class="font-semibold">Actors:</span>
-                <span class="font-bold ml-2">{{$actors}}</span>
-            </div>
+                <div class="flex flex-col md:flex-row items-center">
+                    <span class="font-semibold">Directed by:</span>
+                    <span class="font-bold ml-2">{{ $directors }}</span>
+                </div>
+                <div class="flex flex-col md:flex-row items-center mt-2 md:mt-0">
+                    <span class="font-semibold">Actors:</span>
+                    <span class="font-bold ml-2">{{ $actors }}</span>
+                </div>
             </div>
         </div>
     </div>

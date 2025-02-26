@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import './style.css';
+@import './loader.css';
 
 @tailwind base;
 @tailwind components;

@@ -1,14 +1,16 @@
 <?php
 
 use App\Livewire\Movie;
+use App\Livewire\Pricing;
+use App\Livewire\SearchMovie;
 use Illuminate\Support\Facades\Route;
 
 
 Route::view('/', 'welcome')->name('welcome');
-Route::view('/pricing', 'pricing')->name('pricing');
+Route::get('/pricing', Pricing::class)->name('pricing');
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('/home', 'dashboard')
+    Route::view('/home', 'auth.dashboard')
         ->middleware(['verified'])
         ->name('dashboard');
 
@@ -30,15 +32,13 @@ Route::middleware(['auth'])->group(function () {
         return 'WatchList';
     })->name('watchlist');
 
-    Route::get('/home/search', function () {
-        return 'Search';
-    })->name('search');
+    Route::get('/home/search', SearchMovie::class)->name('search');
 
     Route::get('/home/favourites', function () {
         return 'Favourites';
     })->name('favourites');
 
-    Route::view('profile', 'profile')
+    Route::view('profile', 'auth.profile')
         ->name('profile');
 });
 

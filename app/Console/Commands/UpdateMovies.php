@@ -7,19 +7,19 @@ use Database\Seeders\MovieSeeder;
 
 class UpdateMovies extends Command
 {
-    protected $signature = 'movies:create {title}';
-    protected $description = 'Fetch and update movies from OMDB API';
+    // protected $signature = 'movie:update {title} {--series}';
+    protected $signature = 'movie:update';
+
+    protected $description = 'Fetch movies from OMDB API\nUse the --series flag to fetch TV series.';
 
     public function handle()
     {
-        $title = $this->argument('title'); // Get the string argument
-
-        $this->info("Sending request with: $title");
-
+        // $titles = $this->argument('title'); // Get the string argument
+        // $isSeries = $this->option('series');
         $seeder = new MovieSeeder();
         $seeder->setCommand($this); // Manually set the command
-        $seeder->run($title);
-
-        $this->info('Movies updated successfully!');
+        $seeder->run();
+        $this->info("Fetching series details for movies ");
+        $this->info('Record added successfully!');
     }
 }

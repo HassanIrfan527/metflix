@@ -14,4 +14,6 @@
         @endforeach
     </div>
 
+    {{ $movies->links() }}
+    <div wire:loading>Loading more movies...</div>
 </div>

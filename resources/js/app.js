@@ -19,24 +19,50 @@ window.addEventListener("resize", () => {
         setIsOpen(false); // Close the mobile menu
     }
 });
+document.addEventListener('alpine:init', () => {
+    Alpine.store('navigation', {
+        navigating: false,
+    });
 
-// document.addEventListener("alpine:init", () => {
-//     Alpine.data("imageSlider", () => ({
-//       currentIndex: 1,
-//       images: [
-//         "https://unsplash.it/640/425?image=30",
-//         "https://unsplash.it/640/425?image=40",
-//         "https://unsplash.it/640/425?image=50",
-//       ],
-//       previous() {
-//         if (this.currentIndex > 1) {
-//           this.currentIndex = this.currentIndex - 1;
-//         }
-//       },
-//       forward() {
-//         if (this.currentIndex < this.images.length) {
-//           this.currentIndex = this.currentIndex + 1;
-//         }
-//       },
-//     }));
-//   });
+    document.addEventListener('livewire:navigate', () => {
+        Alpine.store('navigation').navigating = true;
+    });
+
+    document.addEventListener('livewire:navigated', () => {
+        Alpine.store('navigation').navigating = false;
+    });
+});
+
+
+// Theme toggle function
+function toggleTheme() {
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+
+    // Toggle icons
+    if (moonIcon.classList.contains('block')) {
+        moonIcon.classList.replace('block', 'hidden');
+        sunIcon.classList.replace('hidden', 'block');
+    } else {
+        sunIcon.classList.replace('block', 'hidden');
+        moonIcon.classList.replace('hidden', 'block');
+    }
+
+    // Here you would add logic to toggle between dark and light mode
+    // This is a placeholder for your theme switching functionality
+    document.documentElement.classList.toggle('light-mode');
+}
+
+document.addEventListener('alpine:init', () => {
+    // Sticky navbar effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('nav');
+        if (window.scrollY > 10) {
+            navbar.classList.add('py-2', 'bg-black/80', 'shadow-xl');
+            navbar.classList.remove('py-4', 'bg-black/70');
+        } else {
+            navbar.classList.add('py-4', 'bg-black/70');
+            navbar.classList.remove('py-2', 'bg-black/80', 'shadow-xl');
+        }
+    });
+});

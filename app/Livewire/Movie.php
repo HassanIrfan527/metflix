@@ -4,10 +4,12 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Movie as MovieModel;
+use Livewire\WithPagination;
 use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
 
 class Movie extends Component
 {
+
     public $title;
     public $year;
     public $movie;
