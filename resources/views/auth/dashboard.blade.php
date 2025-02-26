@@ -1,7 +1,5 @@
 <x-app-layout>
-    <x-slot name="title">
-        {{ __('Home') }}
-    </x-slot>
+    <x-slot name="title">Home</x-slot>
     @if (session('success'))
         <x-alert type="success" :message="session('success')"></x-alert>
     @endif
@@ -16,4 +14,5 @@
         </div>
     </div>
 
+    <x-loader wire:loading wire:target="nextPage,previousPage" class="fixed inset-0 flex items-center justify-center"></x-loader>
 </x-app-layout>

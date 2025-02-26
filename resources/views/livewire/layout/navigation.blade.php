@@ -24,7 +24,7 @@ new class extends Component {
 
 <!-- Component Start -->
 <nav
-    class="z-50 fixed left-0 flex h-full overflow-x-hidden w-20 flex-col items-center overflow-y-auto bg-gradient-to-b from-slate-800/90 to-slate-900/90 text-gray-300 shadow-xl backdrop-blur-md transition-all duration-500 hover:w-64 group rounded-r-2xl border-r border-white/5">
+    class="z-50 fixed left-0 flex h-full overflow-x-hidden overflow-y-hidden w-20 flex-col items-center hover:overflow-y-auto bg-gradient-to-b from-slate-800/90 to-slate-900/90 text-gray-300 shadow-xl backdrop-blur-md transition-all duration-500 hover:w-64 group rounded-r-2xl border-r border-white/5">
     <!-- Logo with enhanced animation -->
     <div class="shrink-0 flex items-center justify-center pt-6 pb-3 w-full relative">
         <a href="{{ route('dashboard') }}" wire:navigate class="flex items-center justify-center w-full">

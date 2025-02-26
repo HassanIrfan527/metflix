@@ -5,7 +5,7 @@
 
     <div class="flex justify-center items-center min-h-[30vh]">
         <div class="relative w-full max-w-md">
-            <input type="text" wire:model.live="query" placeholder="Search for a movie..."
+            <input type="text" wire:model.live="query" wire:loading.attr='disabled' placeholder="Search for a movie..."
                 class="w-full p-3 pl-12 text-gray-700 dark:text-gray-200 bg-white/30 dark:bg-slate-800/50 backdrop-blur-md border border-white/10 rounded-2xl shadow-lg transition-all focus:ring-2 focus:ring-red-500 focus:outline-none focus:shadow-xl focus:bg-white/50 dark:focus:bg-slate-800/60" />
             <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 text-red-500 w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
