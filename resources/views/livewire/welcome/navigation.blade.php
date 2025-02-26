@@ -5,7 +5,7 @@
         <a href="{{ route('welcome') }}" wire:navigate
             class="flex items-center transform transition-transform duration-300 hover:scale-105 hover:rotate-6">
             <x-application-logo class="h-10 w-10" />
-            <span class="text-white font-bold text-xl ml-2">BrandName</span>
+            <span class="text-white font-bold text-xl ml-2">MetFlix</span>
         </a>
     </div>
 
@@ -50,14 +50,16 @@
     <!-- Right: Search & Authentication Buttons -->
     <div class="flex items-center space-x-4">
         <!-- Search Box -->
-        <div class="relative">
-            <input type="text" placeholder="Search..."
-                class="w-32 md:w-40 lg:w-48 py-2 pl-10 pr-4 rounded-full bg-white/20 text-white placeholder-white/70 focus:outline-none focus:bg-white/30 transition-all duration-300 shadow-inner focus:shadow-lg" />
-            <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 top-2.5 h-5 w-5 text-white/70" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-4.35-4.35m0 0a8 8 0 10-11.3 0 8 8 0 0011.3 0z" />
-            </svg>
+        <div class="relative lg:block transition-all duration-500 opacity-100 scale-100">
+            <div class="relative">
+                <input type="text" placeholder="Search titles, genres..."
+                    class="bg-white/10 backdrop-blur-md text-white border border-white/10 rounded-full py-2 pl-10 pr-4 w-64 focus:w-80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500/50 placeholder-white/50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/70 absolute left-3 top-2.5"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
         </div>
 
         <!-- Authentication Buttons -->
