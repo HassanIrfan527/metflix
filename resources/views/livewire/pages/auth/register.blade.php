@@ -31,12 +31,14 @@ new #[Layout('layouts.guest')] class extends Component {
 
         Auth::login($user);
 
-        session()->flash('success', __('Successfully Logged in! Enjoy the platform!'));
+        session()->flash('success', 'Successfully Logged in! Enjoy the platform!');
         return $this->redirect(route('dashboard'), navigate: true);
     }
 }; ?>
 
 <div>
+    <x-slot name="title">Create a new Account</x-slot>
+
     <form wire:submit="register">
         <!-- Name -->
         <div>
@@ -76,12 +78,10 @@ new #[Layout('layouts.guest')] class extends Component {
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                href="{{ route('login') }}" wire:navigate>
-                {{ __('Already registered?') }}
-            </a>
+                href="{{ route('login') }}" wire:navigate>Already registered?</a>
 
             <x-primary-button class="ms-4">
-                <span wire:loading.remove>{{ __('Register') }}</span>
+                <span wire:loading.remove>Register</span>
                 <div wire:loading class="flex items-center">
                     <svg class="animate-spin h-5 w-5 mr-2 text-gray-600" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24">

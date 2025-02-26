@@ -8,24 +8,23 @@ new class extends Component {
     /**
      * Log the current user out of the application.
      */
-     public $user;
+    public $user;
 
-     public function mount()
-     {
-         $this->user = Auth::user();
-     }
-     public function logout(Logout $logout): void
+    public function mount()
+    {
+        $this->user = Auth::user();
+    }
+    public function logout(Logout $logout): void
     {
         $logout();
 
         $this->redirect('/', navigate: true);
     }
-
 }; ?>
 
 <!-- Component Start -->
 <nav
-    class="z-50 fixed left-0 flex h-full w-20 flex-col items-center overflow-hidden bg-gradient-to-b from-slate-800/90 to-slate-900/90 text-gray-300 shadow-xl backdrop-blur-md transition-all duration-500 hover:w-64 group rounded-r-2xl border-r border-white/5">
+    class="z-50 fixed left-0 flex h-full overflow-x-hidden w-20 flex-col items-center overflow-y-auto bg-gradient-to-b from-slate-800/90 to-slate-900/90 text-gray-300 shadow-xl backdrop-blur-md transition-all duration-500 hover:w-64 group rounded-r-2xl border-r border-white/5">
     <!-- Logo with enhanced animation -->
     <div class="shrink-0 flex items-center justify-center pt-6 pb-3 w-full relative">
         <a href="{{ route('dashboard') }}" wire:navigate class="flex items-center justify-center w-full">
@@ -253,7 +252,7 @@ new class extends Component {
     </div>
 
     <!-- Enhanced Profile Button with Status Indicator -->
-    <a class="flex items-center w-full mt-auto relative overflow-hidden
+    <a class="flex items-center w-full mt-auto relative bottom-0
              bg-gradient-to-r from-slate-700/70 to-slate-800/70 hover:from-blue-500/20 hover:to-purple-500/20
              backdrop-blur-md transition-all duration-500 hover:shadow-lg border-t border-gray-700/30 group-hover:rounded-lg mx-2 mb-2 p-3"
         href="{{ route('profile') }}" wire:navigate>
@@ -278,19 +277,9 @@ new class extends Component {
         </div>
 
         <div class="ml-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-grow">
-            <p class="text-sm font-medium leading-none">{{$user->name}}</p>
+            <p class="text-sm font-medium leading-none">{{ $user->name }}</p>
             <p class="text-xs text-gray-400 mt-1">View Profile</p>
         </div>
-
-        <!-- Settings button (new) -->
-        <button
-            class="w-8 h-8 ml-auto rounded-full hover:bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M10.325 6.517A5.5 5.5 0 0 1 14 11.5a5.5 5.5 0 0 1-3.675 4.983m5.558-9.456a3.751 3.751 0 0 1 0 4.946m-11.495-8.87A5.5 5.5 0 0 0 0 11.5a5.5 5.5 0 0 0 4.388 5.397m5.428-10.565a3.751 3.751 0 0 1 0 4.835" />
-            </svg>
-        </button>
 
         <!-- Glassmorphism glow effect -->
         <div
