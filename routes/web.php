@@ -3,10 +3,15 @@
 use App\Livewire\Movie;
 use App\Livewire\Pricing;
 use App\Livewire\SearchMovie;
+use App\Models\Movie as ModelsMovie;
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'welcome')->name('welcome');
+
+Route::get('/', function(){
+    $movie = ModelsMovie::select(['poster'])->inRandomOrder()->limit(1)->first();
+    return view('welcome', ['randomMovie'=> $movie]);
+})->name('welcome');
 Route::get('/pricing', Pricing::class)->name('pricing');
 
 Route::middleware(['auth'])->group(function () {

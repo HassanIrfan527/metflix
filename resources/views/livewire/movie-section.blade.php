@@ -10,6 +10,8 @@
                         <x-slot name="imbdRating">{{ $movie->imdbRating }}</x-slot>
                         <x-slot name="posterImage">{{ $movie->poster }}</x-slot>
                         <x-slot name="altText">{{ $movie->title }}</x-slot>
+                        <x-slot name="director">{{ $movie->director }}</x-slot>
+                        <x-slot name="runtime">{{ $movie->duration}} minutes</x-slot>
                     </x-movie-card>
                 </a>
             </div>
@@ -17,6 +19,6 @@
     </div>
 
     <div class="px-6 mt-4">
-        {{$movies->links()}}
+        {{ $movies->links() }}
     </div>
 </div>

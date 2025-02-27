@@ -16,14 +16,6 @@
 
 <body class="antialiased font-sans text-white bg-gray-900">
 
-    <div class="loader bg-opacity-75 z-50" wire:loading.delay>
-        <div class="loader__bar"></div>
-        <div class="loader__bar"></div>
-        <div class="loader__bar"></div>
-        <div class="loader__bar"></div>
-        <div class="loader__bar"></div>
-        <div class="loader__ball"></div>
-    </div>
 
     <!-- Navigation -->
     <livewire:welcome.navigation />
