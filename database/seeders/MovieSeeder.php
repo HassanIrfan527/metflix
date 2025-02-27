@@ -267,7 +267,7 @@ class MovieSeeder extends Seeder
                 $duration = $runtime ?? null; // Check if key exists
                 $duration = ($duration === 'N/A') ? null : floatval($duration); // Convert to float or set null
 
-                Movie::updateOrCreate(
+                $movie = Movie::updateOrCreate(
                     ['title' => $data['Title']], // Avoid duplicates
                     [
                         'description' => $data['Plot'],
@@ -280,16 +280,44 @@ class MovieSeeder extends Seeder
                         'release_date' => $releaseDate,
                         'year' => $data['Year'],
                         'duration' => $duration,
-                        'genre' => $data['Genre'],
                         'poster' => $data['Poster'],
                         'type' => $data['Type'], // You can modify this for TV shows or anime
                     ]
                 );
+                $this->configureGenres($data['Genre'], $movie);
 
                 $this->command->info("Inserted: " . $data['Title']);
             } else {
                 $this->command->error("Failed to fetch: " . $title);
             }
         }
+    }
+
+
+    private function configureGenres(string $genres, Movie $movie)
+    {
+        $genreList = explode(',', $genres);
+        $genreIds = [];
+        $isAnime = false;
+
+        foreach ($genreList as $genre) {
+            $newGenre = \App\Models\Genre::updateOrCreate(
+                ['name' => $genre],
+                ['name' => $genre]
+            );
+
+            if ($genre == 'Animation') {
+                $isAnime = true;
+            }
+
+            $genreIds[] = $newGenre->id;
+        }
+
+        if ($isAnime) {
+            $movie->is_anime = true;
+        }
+
+        $movie->save();
+        $movie->genres()->attach($genreIds);
     }
 }

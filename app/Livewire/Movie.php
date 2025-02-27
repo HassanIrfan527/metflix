@@ -13,6 +13,7 @@ class Movie extends Component
     public $title;
     public $year;
     public $movie;
+    public $genres;
 
     protected $queryString = ['title', 'year']; // Enable query string
 
@@ -35,12 +36,15 @@ class Movie extends Component
 
             abort(HttpFoundationResponse::HTTP_NOT_FOUND, 'Movie not found');
         }
+        // Fetch genres associated with the movie
+        $this->genres = $this->movie->genres->pluck('name');
     }
 
     public function render()
     {
         return view('livewire.movie', [
             'movie' => optional($this->movie),
+            'genres'=> optional($this->genres),
         ]);
     }
 }

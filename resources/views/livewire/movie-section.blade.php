@@ -12,6 +12,7 @@
                         <x-slot name="altText">{{ $movie->title }}</x-slot>
                         <x-slot name="director">{{ $movie->director }}</x-slot>
                         <x-slot name="runtime">{{ $movie->duration}} minutes</x-slot>
+                        {{-- <x-slot name="genre">{{ $movie->genres->pluck('name') }}</x-slot> --}}
                     </x-movie-card>
                 </a>
             </div>

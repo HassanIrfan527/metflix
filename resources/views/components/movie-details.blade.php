@@ -5,7 +5,7 @@
     'posterImage',
     'altText',
     'duration',
-    'genre',
+    'genres',
     'description',
     'directors',
     'actors',
@@ -15,7 +15,7 @@
     'trailerLink' => '#',
 ])
 
-<div class="min-h-screen grid place-items-center bg-gradient-to-br from-gray-900 to-gray-800 p-4">
+<div class="min-h-screen my-7 items-center grid place-items-center bg-gradient-to-br from-gray-900 to-gray-800 p-4">
     <div
         class="rounded-lg bg-gray-800 shadow-xl transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 max-w-6xl">
         <!-- Main Content Section -->
@@ -27,7 +27,7 @@
 
                 <!-- Hover overlay with quick actions -->
                 <div
-                    class="absolute inset-0 h-96 w-72 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-md transform translate-y-4 group-hover:translate-y-0">
+                    class="absolute h-[390px] inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-md transform -translate-y-5 group-hover:-translate-y-5">
                     <div class="flex flex-col items-center space-y-4">
                         <button type="button"
                             class="bg-white/20 hover:bg-white/30 text-white rounded-full p-3 transition-all duration-300 transform hover:scale-110"
@@ -59,9 +59,10 @@
 
                 <!-- Movie basic info -->
                 <div class="text-lg flex flex-wrap justify-between my-4">
-                    <span class="font-medium text-gray-400">{{ $duration }} | {{ $genre }}</span>
+                    <span class="font-medium text-gray-400">{{ $duration }}</span>
                     <span class="font-medium text-gray-400">{{ $releaseDate ?? $year }}</span>
                 </div>
+                <span>{{ $genres }}</span>
 
                 <!-- Rating section with animation -->
                 <div class="flex items-center space-x-4 my-4">

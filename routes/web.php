@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AnimePage;
 use App\Livewire\Movie;
 use App\Livewire\Pricing;
 use App\Livewire\SearchMovie;
@@ -8,10 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function(){
-    $movie = ModelsMovie::select(['poster'])->inRandomOrder()->limit(1)->first();
-    return view('welcome', ['randomMovie'=> $movie]);
-})->name('welcome');
+Route::view('/', 'welcome')->name('welcome');
 Route::get('/pricing', Pricing::class)->name('pricing');
 
 Route::middleware(['auth'])->group(function () {
@@ -29,9 +27,7 @@ Route::middleware(['auth'])->group(function () {
         return 'Series';
     })->name('series');
 
-    Route::get('/home/anime', function () {
-        return 'Anime';
-    })->name('anime');
+    Route::get('/home/anime', AnimePage::class)->name('anime');
 
     Route::get('/home/my-watchlist', function () {
         return 'WatchList';
