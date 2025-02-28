@@ -4,12 +4,14 @@
         MetFlix - Unlimited Movies & TV Shows
     </x-slot>
 
+
+
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center overflow-hidden">
         <!-- Background video with fallback image -->
         <div class="absolute top-0 left-0 w-full h-full -z-20">
             <video autoplay muted loop class="absolute object-cover w-full h-full opacity-70">
-                <source src="/videos/hero-background.mp4" type="video/mp4">
+                <source src="{{asset('movies/trailer.mp4')}}" type="video/mp4">
                 <!-- Fallback to your image if video fails to load -->
             </video>
             <img src="{{ asset('images/bg.jpg') }}" alt="background"
