@@ -42,7 +42,7 @@
             <div x-ref="slider" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 scrollbar-hide">
                 @foreach ($movies as $movie)
                     <div class="shrink-0 w-[85%] md:w-[30%] lg:w-[20%] snap-center transform transition-transform duration-300 hover:scale-105">
-                        <a href="{{ route('movie', ['title' => urlencode($movie->title), 'year' => $movie->year]) }}" wire:navigate>
+                        <a href="{{ route('guest.movie', ['title' => urlencode($movie->title), 'year' => $movie->year]) }}" wire:navigate>
                             <x-movie-card wire:loading.class="opacity-50">
                                 <x-slot name="movieTitle">{{ $movie->title }}</x-slot>
                                 <x-slot name="year">{{ $movie->year }}</x-slot>
