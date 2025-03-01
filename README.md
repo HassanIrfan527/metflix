@@ -7,7 +7,7 @@ MetFlix is a movie database application built with Laravel. It allows users to b
 - Browse movies by year
 - Search for movies by title
 - View detailed information about each movie, including title, year, genre, description, directors, actors, and rating
-- Integration with The Movie Database (TMDb & OMDB) API for fetching movie data
+- Integration with The Movie Database (TMDb) and OMDB API for fetching movie data
 
 ## Requirements
 
@@ -58,25 +58,32 @@ MetFlix is a movie database application built with Laravel. It allows users to b
 
 ### Session Configuration
 
-The session configuration can be found in `config/session.php`. You can set the `same_site` and `partitioned` options as needed.
+The session configuration can be found in [`config/session.php`](config/session.php). You can set the `same_site` and `partitioned` options as needed.
 
 ### Filesystem Configuration
 
-The filesystem configuration can be found in `config/filesystems.php`. You can configure the default filesystem disk and other disks such as `local` and `s3`.
+The filesystem configuration can be found in [`config/filesystems.php`](config/filesystems.php). You can configure the default filesystem disk and other disks such as `local` and `s3`.
 
 ## Usage
 
 ### Seeding Movies
 
-The `MovieSeeder` class in `database/seeders/MovieSeeder.php` seeds the database with a list of movies from various years.
+The `MovieSeeder` class in [`database/seeders/MovieSeeder.php`](database/seeders/MovieSeeder.php) seeds the database with a list of movies from various years.
 
 ### Fetching Movie Data
 
-The `GetMovie` command in `app/Console/Commands/GetMovie.php` fetches movie data from the TMDb API.
+The `UpdateMovies` command in [`app/Console/Commands/UpdateMovies.php`](app/Console/Commands/UpdateMovies.php) fetches movie data from the OMDB API. You can run this command using:
+```sh
+php artisan movie:update
+```
 
 ### Viewing Movies
 
-The movie details are displayed using the `movie.blade.php` view in `resources/views/livewire/movie.blade.php`.
+The movie details are displayed using the `movie.blade.php` view in [`resources/views/livewire/movie.blade.php`](resources/views/livewire/movie.blade.php).
+
+### Frequently Asked Questions
+
+The FAQ section is available in the `faqs.blade.php` view in [`resources/views/components/faqs.blade.php`](resources/views/components/faqs.blade.php).
 
 ## Contributing
 
@@ -84,4 +91,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the [`LICENSE`](LICENSE) file for details.
