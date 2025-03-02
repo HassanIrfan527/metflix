@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Events\MovieAdded;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Http;
@@ -286,7 +285,6 @@ class MovieSeeder extends Seeder
             );
             $this->configureGenres($data['Genre'], $movie);
 
-            broadcast(new MovieAdded($movie))->toOthers(); // Broadcast the event
             $this->command->info("Inserted: " . $data['Title']);
         } else {
             $this->command->error("Failed to fetch: " . $title);
