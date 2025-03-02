@@ -96,7 +96,8 @@
                                         Movies
                                     </div>
                                     <template x-for="movie in movies" :key="movie.id">
-                                        <a :href="`{{ route('guest.movie', ['title' => '']) }}/${movie.title}/${movie.year}`" class="block hover:bg-gray-800 transition-colors">
+
+                                        <a :href="`/movie?title=${encode(movie.title)}&year=${movie.year}`" class="block hover:bg-gray-800 transition-colors">
                                             <div class="flex items-center p-3">
                                                 <div class="w-10 h-14 bg-gray-700 rounded flex-shrink-0 overflow-hidden">
                                                     <img :src="movie.poster" alt="" class="w-full h-full object-cover">

@@ -16,7 +16,7 @@ Route::get('/movie', function (Illuminate\Http\Request $request) {
     $movieName = urldecode($request->query('title'));
     $movieYear = urldecode($request->query('year'));
     $movie = MovieModel::where('title', $movieName)->where('year', $movieYear)->first();
-    $genres = $movie->genres()->pluck('name');
+    $genres = $movie->genres->pluck('name');
     return view('movie-guest', ['movie' => $movie, 'genres' => $genres]);
 })->name('guest.movie');
 
