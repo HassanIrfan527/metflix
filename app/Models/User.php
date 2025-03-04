@@ -46,6 +46,12 @@ class User extends Authenticatable
         ];
     }
 
+    public function watchlist(){
+        return $this->belongsToMany(Movie::class)->withTimestamps();
+    }
+    public function addToWatchlist(Movie $movie){
+        return $this->watchlist()->attach($movie->id);
+    }
     public function friends()
     {
         return $this->belongsToMany(User::class, 'friendships', 'userId1', 'userId2')

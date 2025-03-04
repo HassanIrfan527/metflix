@@ -8,11 +8,12 @@ new class extends Component {
     /**
      * Log the current user out of the application.
      */
-    public $user;
+    public $user , $count;
 
     public function mount()
     {
         $this->user = Auth::user();
+        $this->count = $this->user->watchlist()->count();
     }
     public function logout(Logout $logout): void
     {
@@ -223,7 +224,7 @@ new class extends Component {
                 <!-- Watch count indicator (new) -->
                 <div
                     class="absolute right-3 ml-auto bg-yellow-500 rounded-full text-xs text-white px-2 py-0.5 opacity-0 group-hover:opacity-100 scale-hover">
-                    12</div>
+                    {{$count}}</div>
             </x-nav-link>
 
             <!-- Favourites Link -->

@@ -12,7 +12,10 @@
         })">
         <p x-text="message"></p>
     </div>
-    <div x-data="" class="py-6 text-center align-center text-white">
+    <div x-init="
+    function removeFriend($friend) {
+        {{$user->removeFriend()}}}"
+     class="py-6 text-center align-center text-white">
         <ul>
             <h1>Your Friends</h1>
             @foreach ($friends as $friend)

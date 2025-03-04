@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\APIController;
 use App\Livewire\AnimePage;
 use App\Livewire\Movie;
 use App\Livewire\Pricing;
@@ -23,7 +23,6 @@ Route::get('/movie', function (Illuminate\Http\Request $request) {
 
 
 // Search route
-Route::post('/search', [SearchController::class,'search'])->name('post.search');
 
 Route::middleware(['auth'])->group(function () {
     Route::view('/home', 'auth.dashboard')
@@ -51,7 +50,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home/anime', AnimePage::class)->name('anime');
 
     Route::get('/home/my-watchlist', function () {
-        return 'WatchList';
+        $user = Auth::user();
+        $watchlist = $user->watchlist;
+        return view('auth.watchlist', ['watchlist' => $watchlist]);
     })->name('watchlist');
 
     Route::get('/home/search', SearchMovie::class)->name('search');
@@ -64,5 +65,12 @@ Route::middleware(['auth'])->group(function () {
         ->name('profile');
 });
 
+
+// API Endpoints
+Route::post('/search', [APIController::class,'search'])->name('post.search');
+
+Route::prefix('api')->middleware(['auth'])->group(function () {
+    Route::post('/watchlist',[APIController::class,'getWatchlist'])->name('api.watchlist');
+});
 
 require __DIR__ . '/auth.php';
