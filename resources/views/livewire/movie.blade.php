@@ -11,7 +11,7 @@
         ← Go Back
     </button>
 
-    <x-movie-details>
+    <x-movie-details :addedToWatchlist="$addedToWatchlist">
         <x-slot name="movieTitle">{{ $movie->title }}</x-slot>
         <x-slot name="year">{{ $movie->year }}</x-slot>
         <x-slot name="imdbRating">{{ $movie->imdbRating }}</x-slot>

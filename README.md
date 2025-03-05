@@ -20,7 +20,7 @@ MetFlix is a movie database application built with Laravel. It allows users to b
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/metflix.git
+    git clone https://github.com/HassanIrfan527/metflix.git
     cd metflix
     ```
 
