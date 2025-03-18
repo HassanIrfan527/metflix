@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\APIController;
 use App\Livewire\AnimePage;
 use App\Livewire\Movie;
@@ -72,5 +73,29 @@ Route::post('/search', [APIController::class,'search'])->name('post.search');
 Route::prefix('api')->middleware(['auth'])->group(function () {
     Route::post('/watchlist',[APIController::class,'getWatchlist'])->name('api.watchlist');
 });
+
+
+// Stripe Checkout
+
+Route::post('/create-checkout-session', [PaymentController::class, 'createCheckoutSession']);
+
+Route::get('/checkout/success', function (Illuminate\Http\Request $request) {
+    // Retrieve the Checkout Session ID from the query string
+    $sessionId = $request->query('session_id');
+
+    // (Optional) Use the Stripe client to verify payment status:
+    $stripe = app(\Stripe\StripeClient::class);
+    $session = $stripe->checkout->sessions->retrieve($sessionId);
+
+    if ($session->payment_status !== 'paid') {
+        return redirect('/checkout/cancel');
+    }
+
+    return ['session' => $session];
+})->name('checkout.success');
+
+Route::get('/checkout/cancel', function () {
+    return 'Cancel';
+})->name('checkout.cancel');
 
 require __DIR__ . '/auth.php';
