@@ -13,6 +13,7 @@
     'releaseDate' => null,
     'languages' => 'English',
     'trailerLink' => '#',
+    'addedToWatchlist' => false,
 ])
 
 <div class="min-h-screen my-7 items-center grid place-items-center bg-gradient-to-br from-gray-900 to-gray-800 p-4">
@@ -106,7 +107,7 @@
 
                     <button type="button"
                         class="border border-red-500 text-red-500 rounded-md px-6 py-3 transition-all duration-300 ease hover:bg-red-500 hover:text-white focus:outline-none transform hover:scale-105">
-                        ADD TO WATCHLIST
+                        {{$addedToWatchlist ? 'REMOVE FROM WATCHLIST' : 'ADD TO WATCHLIST'}}
                     </button>
 
                     <button type="button"
