@@ -26,7 +26,7 @@ class Movie extends Component
             'action' => 'check',
         ]);
         if ($response->json('is_in_watchlist')) {
-            dd($response->json('is_in_watchlist'));
+            // dd($response->json('is_in_watchlist'));
             return true;
         }
 
@@ -55,7 +55,7 @@ class Movie extends Component
         $this->genres = $this->movie->genres->pluck('name');
 
         $this->addedToWatchlist = $this->isAddedToWatchlist($this->movie);
-        dd($this->addedToWatchlist);
+        // dd($this->addedToWatchlist);
     }
 
     public function render()

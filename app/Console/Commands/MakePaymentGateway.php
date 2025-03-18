@@ -13,7 +13,7 @@ class MakePaymentGateway extends Command
      *
      * @var string
      */
-    protected $signature = 'payment:make {name}';
+    protected $signature = 'payment:makeNew {name}';
     /**
      * The console command description.
      *
