@@ -2,8 +2,8 @@
 
 MetFlix is a movie database application built with Laravel. It allows users to browse, search, and view details about various movies.
 To see an overview of the website, see this video:
-<!-- [MetFlix Overview](https://www.loom.com/share/c4ef878a4b8c425ead68d366d56e6bcc?sid=5a1a209d-3a13-4ec7-9b08-a88cc1dfc191) -->
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/c4ef878a4b8c425ead68d366d56e6bcc?sid=4296257c-dc4f-4fe2-beb7-2f7d5be357ad" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+[MetFlix Overview](https://www.loom.com/share/c4ef878a4b8c425ead68d366d56e6bcc?sid=5a1a209d-3a13-4ec7-9b08-a88cc1dfc191)
+
 ## Features
 
 - Browse movies by year
