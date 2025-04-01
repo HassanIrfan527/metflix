@@ -1,4 +1,4 @@
-@props(['type' => 'info', 'message', 'messageTitle', 'duration' => 5000])
+@props(['type' => 'info', 'message', 'messageTitle'=>'Default', 'duration' => 5000])
 
 @php
     $icons = [
