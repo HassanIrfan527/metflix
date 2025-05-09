@@ -6,6 +6,7 @@ use App\Livewire\AnimePage;
 use App\Livewire\Movie;
 use App\Livewire\Pricing;
 use App\Livewire\SearchMovie;
+use App\Livewire\Series;
 use App\Models\Movie as MovieModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,17 +37,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/home/movie', Movie::class)->name('movie');
 
-    Route::get('/home/friends', function () {
-    $users = App\Models\User::select('name')
-        ->where('id', '!=', Auth::id())
-        ->get();
-    $friends = Auth::user()->friends;
-    return view('auth.friends', ['users' => $users, 'friends' => $friends]);
-    })->name('auth.friends');
-
-    Route::get('/home/series', function () {
-        return 'Series';
-    })->name('series');
+    Route::get('/home/series', Series::class)->name('series');
 
     Route::get('/home/anime', AnimePage::class)->name('anime');
 
