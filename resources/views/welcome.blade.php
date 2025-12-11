@@ -9,9 +9,9 @@
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center overflow-hidden">
         <!-- Background video with fallback image -->
-        <div class="absolute top-0 left-0 w-full h-full -z-20">
-            <video autoplay muted loop class="absolute object-cover w-full h-full opacity-70">
-                <source src="{{asset('movies/trailer.mp4')}}" type="video/mp4">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+            <video autoplay muted loop class="absolute z-20 object-cover w-full h-full opacity-70">
+                <source src="{{ asset('movies/trailer.mp4') }}"  type="video/mp4">
                 <!-- Fallback to your image if video fails to load -->
             </video>
             <img src="{{ asset('images/bg.jpg') }}" alt="background"
@@ -21,7 +21,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
         </div>
 
-        <div class="container mx-auto px-4 relative z-10">
+        <div class="container mx-auto px-4 relative z-50">
             <div class="flex flex-col md:flex-row items-center">
                 <!-- Left column: Main content -->
                 <div class="w-full md:w-1/2 text-left mb-12 md:mb-0 animate-fade-in-up">
@@ -235,5 +235,12 @@
             </div>
         </div>
 
+        <footer class="mt-16 flex flex-col items-center justify-center animate-fade-in-up">
+            <h3 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-red-500 via-yellow-400 to-pink-600 bg-clip-text text-transparent drop-shadow-lg mb-2 transition-transform duration-300 hover:scale-105">
+            Made by Syed Hassan Irfan Gardezi
+            </h3>
+            <div class="w-24 h-1 bg-gradient-to-r from-red-500 via-yellow-400 to-pink-600 rounded-full animate-pulse mb-2"></div>
+            <span class="text-gray-400 text-sm italic animate-fade-in" style="animation-delay: 0.5s">Crafted with ❤️ for MetFlix</span>
+        </footer>
     </div>
 </x-app-welcome>

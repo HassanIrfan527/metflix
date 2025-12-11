@@ -1,5 +1,5 @@
 import './bootstrap';
-import './tooltip';
+// import './tooltip';
 
 document.addEventListener('DOMContentLoaded', function () {
     var alertElements = document.querySelectorAll('.alert .btn-close');

@@ -74,10 +74,10 @@
                                     </svg>
                                 </button>
                             @endauth
-                            <div x-show="tooltip"
+                            {{-- <div x-show="tooltip"
                                 class="absolute bottom-full mb-2 w-32 p-2 bg-gray-700 text-white text-sm rounded">
                                 This is a tooltip
-                            </div>
+                            </div> --}}
                             <button
                                 class="text-white bg-white/10 p-1 rounded-full transition-colors duration-300 hover:bg-white/20"
                                 title="More info">
